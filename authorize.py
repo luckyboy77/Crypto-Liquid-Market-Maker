@@ -12,16 +12,7 @@ class GdaxAuth(AuthBase):
 
   def __call__(self, request):
     timestamp = str(time.time())
-    
-    # FOR TESTING
-    print ("requests.method: {} {} requests.path_url: {} {} reqests.body: {} {}".format(
-      type(request.method), str(request.method),
-      type(request.path_url), str(request.path_url),
-      type((request.body or '')), str((request.body or '')) 
-      )
-    )
-'''
-    message = timestamp + request.method + request.path_url + (request.body or '')
+    message = timestamp + request.method + request.path_url + (str(request.body) or '')
     message = message.encode() #hmac does not accept strings
     hmac_key = base64.b64decode(self.secret_key)
     signature = hmac.new(hmac_key, message, hashlib.sha256)
@@ -35,7 +26,6 @@ class GdaxAuth(AuthBase):
       'Content-Type': 'application/json'
     })
     return request
-'''
 
 # run GdaxAuth pulls keys from config and return auth
 def run_GdaxAuth():
