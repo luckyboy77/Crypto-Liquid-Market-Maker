@@ -11,3 +11,5 @@ def send_trade(pair, side, size, price):
   auth = authorize.run_GdaxAuth()
 
   test_trade = requests.post(api_url + 'orders', json=trade, auth=auth)
+  return test_trade
+  
