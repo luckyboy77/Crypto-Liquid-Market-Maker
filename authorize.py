@@ -15,9 +15,9 @@ class GdaxAuth(AuthBase):
     
     # FOR TESTING
     print ("requests.method: {} {} requests.path_url: {} {} reqests.body: {} {}".format(
-      type(request.method), str(requests.method)),
-      type(request.path_url), str(requsts.path_url),
-      type((requests.body or '')), str((request.body or '')) 
+      type(request.method), str(request.method),
+      type(request.path_url), str(request.path_url),
+      type((request.body or '')), str((request.body or '')) 
       )
     )
 '''
